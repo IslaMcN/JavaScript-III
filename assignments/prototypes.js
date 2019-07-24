@@ -9,44 +9,44 @@
 */
   
 
-  // const GameObject = new constructor({
-  //   createdAt: new date(),
-  //   name: "Arya",
-  //   dimensions: {
-  //     length: 5,
-  //     width: 10,
-  //     height: 20,
-  //   }
-  // })
-  // constructor.prototype.destroy = function(){
-  //   returns `${this.name} was removed from the game.`
-  // } // prototype method that returns: `${this.name} was removed from the game.`
+  const GameObject = new constructor({
+    createdAt: new date(),
+    name: "Arya",
+    dimensions: {
+      length: 5,
+      width: 10,
+      height: 20,
+    }
+  })
+  constructor.prototype.destroy = function(){
+    returns `${this.name} was removed from the game.`
+  } // prototype method that returns: `${this.name} was removed from the game.`
   
 
 
 
-  // const CharacterStats = new constructor({
-  //   healthPoints: "220HP"
-  // })
+  const CharacterStats = new constructor({
+    healthPoints: "220HP"
+  })
  
-  // constructor.prototype.takeDamage = function(){
-  //   return `${this.name} took damage.)`
-  // }
-  // // * should inherit destroy() from GameObject's prototype
+  constructor.prototype.takeDamage = function(){
+    return `${this.name} took damage.)`
+  }
+  // * should inherit destroy() from GameObject's prototype
 
 
 
-  // const Humanoid = new constructor({
-  //   team: "Alpha"
-  //   weapon: "DocBand",
-  //   language: "Babble"
-  // })
-  //   //  (Having an appearance or character resembling that of a human.) ===
+  const Humanoid = new constructor({
+    team: "Alpha",
+    weapon: "DocBand",
+    language: "Babble"
+  })
+    //  (Having an appearance or character resembling that of a human.) ===
   
-  //  constructor.prototype.greet = function(){
-  //   return `${this.name} offers a greeting in ${this.language}.`
+   constructor.prototype.greet = function(){
+    return `${this.name} offers a greeting in ${this.language}.`
 
-  //  } // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
+   } // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
   // * should inherit destroy() from GameObject through CharacterStats
   // * should inherit takeDamage() from CharacterStats
  
