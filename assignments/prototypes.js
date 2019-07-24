@@ -7,41 +7,47 @@
   
   Each constructor function has unique properties and methods that are defined in their block comments below:
 */
+   function GameObject(game){
+   this.createdAt = game.createdAt(date);
+   this.name = game.name;
+    this.dimensions = game.dimensions;
+     
+   }
+   GameObject.prototype = Object.create(GameObject.prototype);
 
-  const GameObject = function(game){
-   this.createdAt = game.createdAt,
-   this.name = game.name,
-  
-  this.dimensions (
-    game.length,
-    game.width,
-    game.height,
-  )
   GameObject.prototype.destroy = function(){
-    return `${this.name} was removed from game.`
-  };
-};// prototype method that returns: `${this.name} was removed from the game.`
+    return `${this.newName} was removed from game.`;
+  }
+// prototype method that returns: `${this.name} was removed from the game.`
 
 
 
-  const CharacterStats = function(game){
-  this.healthPoints = game.healthpoints,
-  CharacterStats.prototype.takeDamage = function(){
-    return `${this.name} took damage.`}
-  };
+  function CharacterStats(character){
+  this.healthPoints = character.healthpoints;
+  GameObject.call (this, character);
+  }
+  
+  
+  
    // prototype method -> returns the string '<object name> took damage.'
   // * should inherit destroy() from GameObject's prototype
+CharacterStats.prototype = Object.create(CharacterStats.prototype);
 
+CharacterStats.prototype.takeDamage = function(){
+  return `${this.Name} took damage.`}
+  
+function Humanoid(human){ 
+  this.team = human.team;
+  this.weapons = human.weapons;
+  this.language = human.language;
+  CharacterStats.call(this, human)
+}
+Humanoid.prototype = Object.create(Humanoid.prototype)
 
-
-  const Humanoid = function(game){ 
-  this.team = game.team;
-  this.weapons = game.weapons;
-  this.language = game.language,
   Humanoid.prototype.greet = function(){
-     `${this.name} offers a greeting in ${this.language}`}};
+     `${this.newName} offers a greeting in ${this.language}`};
   
-  
+
  
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid

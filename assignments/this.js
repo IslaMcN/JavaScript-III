@@ -25,7 +25,7 @@ const dog = {
       console.log(this);
     }
   };
-  myObj.sayHello('Zelda');
+  dog.sayHello('Zelda');
 // code example for Implicit Binding
 
 // Principle 3
@@ -38,8 +38,8 @@ function angryMan(greeter) {
     };
   }
   
-  const Eric = new CordialPerson('Newman');
-  const Zelda = new CordialPerson('Jerry');
+  const Eric = new angryMan('Eric');
+  const Zelda = new angryMan('Zelda');
   
   Eric.speak();
   Zelda.speak();
