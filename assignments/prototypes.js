@@ -25,7 +25,7 @@ GameObject.prototype.destroy = function () {
 function CharacterStats(character) {
   GameObject.call(this, character);
   this.healthPoints = character.healthPoints;
-  
+
 }
 
 
@@ -43,7 +43,7 @@ function Humanoid(human) {
   this.team = human.team;
   this.weapons = human.weapons;
   this.language = human.language;
-  
+
 }
 Humanoid.prototype = Object.create(CharacterStats.prototype)
 
@@ -123,7 +123,87 @@ console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 console.log(mage.takeDamage()); // Bruce took damage.
 console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 
-   // Stretch task: 
-  // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
-  // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
-  // * Create two new objects, one a villain and one a hero and fight it out with methods!
+// Stretch task: 
+// * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
+// * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
+// * Create two new objects, one a villain and one a hero and fight it out with methods!
+
+function Villain(evil) {
+  Humanoid.call(this, evil);
+  this.attack = evil.attack;
+  
+
+}
+Villain.prototype = Object.create(Humanoid.prototype)
+
+Villain.prototype.speak = function () {
+  return `I am ${this.name} and I will kill you!!`
+};
+function Hero(good){
+  Humanoid.call(this,good);
+  Villain.call(this,good);
+  this.attack = good.attack;
+  this.merit = good.merit;
+}
+Hero.prototype = Object.create(Humanoid.prototype)
+Hero.prototype.Attack = function (character){
+  if 
+    (attack.evil > character.healthPoints){
+    return "Defeat!";
+  }
+  else {
+    return "Victory!"
+  }
+
+}
+
+Hero.prototype.talk = function() {
+  return "This ends here!"
+}
+
+const hunter = new Hero({
+  createdAt: new Date(),
+  attack: 20,
+  dimensions: {
+    length: 5,
+    width: 10,
+    height: 20,
+  },
+  healthPoints: 22,
+  name: 'Ikelos',
+  team: 'Fire Kingdom',
+  weapons: [
+    'Stave of Destruction',
+    'Demonsbane Staff',
+  ],
+  language: 'Gelonian',
+});
+
+const titan = new Villain({
+  createdAt: new Date(),
+  attack: 10,
+  dimensions: {
+    length: 27,
+    width: 32,
+    height: 42,
+  },
+  healthPoints: 5,
+  name: 'Saltor',
+  team: 'Organ 2',
+  weapons: [
+    'Void Magic',
+    'Sword of demons',
+  ],
+});
+
+console.log(hunter.Attack);
+console.log(titan.createdAt);
+console.log(hunter.talk); 
+console.log(titan.speak); 
+console.log(hunter.attack); 
+console.log(titan.team); // The Round Table
+console.log(hunter.weapons); // Staff of Shamalama
+console.log(titan.language); // Elvish
+console.log(hunter.greet()); // Lilith offers a greeting in Elvish.
+console.log(titan.takeDamage()); // Bruce took damage.
+console.log(hunter.destroy()); // Sir Mustachio was removed from the game.
